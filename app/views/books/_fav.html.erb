@@ -1,0 +1,16 @@
+<% is_faved = book.favorited_by?(current_user) %>
+<% fav_style = is_faved ? "color: #f43f5e" : "" %>
+
+<div style="<%= fav_style %>">
+  <% if is_faved %>
+    <%= link_to book_favorites_path(book), method: :delete, class: "text-decoration-none", style: "color: inherit;" do %>
+      <i class="fa-solid fa-heart"></i>
+    <% end %>
+  <% else %>
+    <%= link_to book_favorites_path(book), method: :post, class: "text-decoration-none", style: "color: inherit;" do %>
+      <i class="fa-regular fa-heart"></i>
+    <% end %>
+  <% end %>
+
+  <span><%= book.favorites.count %></span>
+</div>

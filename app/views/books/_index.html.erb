@@ -19,7 +19,9 @@
         <td>
           <%= render "books/fav", book: book %>
         </td>
-        <td>コメント数：0</td>
+        <td>
+          <%= render "books/comment_count", book: book %>
+        </td>
       </tr>
     <% end %>
   </tbody>

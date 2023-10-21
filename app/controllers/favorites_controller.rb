@@ -9,7 +9,7 @@ class FavoritesController < ApplicationController
   def destroy
     book = Book.find(params[:book_id])
     fav = current_user.favorites.find_by(book_id: book.id)
-    fav.destroy
+    fav && fav.destroy # Countermeasures against unauthorized destroy actions
     redirect_to request.referer
   end
 end

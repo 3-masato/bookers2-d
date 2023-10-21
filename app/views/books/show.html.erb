@@ -46,14 +46,17 @@
 
       <div class="d-flex">
         <div class="d-flex justify-content-around mx-auto w-50">
-          <div><%= render "books/comment_count", book: @book %></div>
+          <div><%= render "book_comments/count", book: @book %></div>
           <div><%= render "favorites/btn", book: @book %></div>
         </div>
       </div>
 
       <hr>
 
-      <%= render "books/comment", book: @book, book_comment: @book_comment %>
+      <div>
+        <%= render "book_comments/list", book: @book %>
+        <%= render "book_comments/form", book: @book, book_comment: @book_comment %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,41 @@
+$fav-color: #f43f5e;
+
+.favorite-body {
+  &-btn, &-btn:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .fa-heart {
+    height: 32px;
+    width: 32px;
+    display: inline-grid;
+    place-items: center;
+    margin-right: -4px;
+    border-radius: 50%;
+    background-color: transparent;
+  }
+
+  &[data-faved="true"], &-btn:hover {
+    color: $fav-color;
+  }
+
+  &-btn {
+    &:hover {
+      .fa-heart {
+        background-color: rgba($fav-color, 0.1);
+      }
+    }
+
+    &:active {
+      .fa-heart {
+        background-color: rgba($fav-color, 0.2);
+      }
+    }
+  }
+
+  &-btn, .fa-heart {
+    transition-duration: 200ms;
+    transition-property: background-color;
+  }
+}

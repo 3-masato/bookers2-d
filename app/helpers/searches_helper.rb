@@ -8,10 +8,14 @@ module SearchesHelper
 
   def search_conditions
     {
-      "完全一致" => "perfect",
-      "前方一致" => "forward",
-      "後方一致" => "backward",
-      "部分一致" => "partial"
+      "Exact Match" => "exact",
+      "Forward Match" => "forward",
+      "Backward Match" => "backward",
+      "Partial Match" => "partial"
     }
+  end
+
+  def no_result_text
+    "Oops! Didn't find what you were looking for? Maybe try different keywords or adjust your search criteria and try again!"
   end
 end

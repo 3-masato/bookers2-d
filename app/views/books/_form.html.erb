@@ -1,7 +1,7 @@
 <section class="mb-4">
   <h2><%= heading %></h2>
   <div class="form-body">
-    <%= form_with model: book do |f| %>
+    <%= form_with model: book, local: true do |f| %>
       <div class="form-group">
         <%= f.label :title, class: "font-weight-bold" %>
         <%= f.text_field :title, class: "form-control", placeholder: "enter the book title" %>

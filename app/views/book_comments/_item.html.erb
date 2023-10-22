@@ -6,7 +6,11 @@
   <div class="book-comment-item-body">
     <div class="book-comment-item-info">
       <div class="font-weight-bold mr-2"><%= user.name %></div>
-      <small><time class="text-black-50" datetime="<% book_comment.created_at %>"><%= book_comment.created_at.strftime("%Y/%m/%d") %></time></small>
+      <small>
+        <time class="text-black-50" datetime="<%= book_comment.created_at %>">
+          <%= book_comment.created_at.strftime("%Y/%m/%d") %>
+        </time>
+      </small>
     </div>
     <div class="book-comment-item-comment"><%= book_comment.comment %></div>
   </div>

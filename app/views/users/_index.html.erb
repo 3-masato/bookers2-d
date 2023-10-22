@@ -1,21 +1,15 @@
-<table class='table'>
-  <thead>
-    <tr>
-      <th>image</th>
-      <th>name</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% users.each do |user| %>
+<section class="mb-4">
+  <h2>Users</h2>
+  <table class='table'>
+    <thead>
       <tr>
-        <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
-        <td><%= user.name %></td>
-        <td><strong><%= user.followings.count %></strong> Following</td>
-        <td><strong><%= user.followers.count %></strong> Followers</td>
-        <td><%= render "relationships/btn", user: user %></td>
-        <td><%= link_to 'Show', user %></td>
+        <th>image</th>
+        <th>name</th>
+        <th colspan="4"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <%= render partial: "users/row", collection: users, as: :user %>
+    </tbody>
+  </table>
+</section>

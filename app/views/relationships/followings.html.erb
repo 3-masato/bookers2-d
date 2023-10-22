@@ -1,6 +1,3 @@
-<h2>Follow Users</h2>
-<% if @users.exists? %>
-  <%= render "users/index", users: @users %>
-<% else %>
-  <p>ユーザーはいません</p>
+<%= render "parts/frame", sidebar: false do %>
+  <%= render "relationships/follows", users: @users, heading: "Follow Users" %>
 <% end %>

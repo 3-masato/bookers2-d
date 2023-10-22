@@ -1,13 +1,22 @@
 <div class="row">
-  <% if sidebar %>
+  <% case type %>
+  <% when :sidebar %>
     <aside class="col-md-3">
       <%= render "parts/sidebar", user: user %>
     </aside>
     <div class="col-md-8 offset-md-1">
       <%= yield %>
     </div>
-  <% else %>
-    <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
+  <% when :middle %>
+    <div class="col-sm-12 col-md-8 col-lg-5 mx-auto">
+      <%= yield %>
+    </div>
+  <% when :large %>
+    <div class="col-sm-12 col-md-10 col-lg-6 mx-auto">
+      <%= yield %>
+    </div>
+  <% when :full %>
+    <div class="col-12 mx-auto">
       <%= yield %>
     </div>
   <% end %>

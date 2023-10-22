@@ -1,4 +1,4 @@
 <%= render "layouts/errors", model: @book %>
-<%= render "parts/frame", user: @user, sidebar: true do %>
+<%= render "parts/frame", user: @user, type: :sidebar do %>
   <%= render "books/index", books: @books %>
 <% end %>

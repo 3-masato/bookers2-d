@@ -1,3 +1,3 @@
-<%= render "parts/frame", user: @user, sidebar: true do %>
+<%= render "parts/frame", user: @user, type: :sidebar do %>
   <%= render "users/index", users: @users %>
 <% end %>

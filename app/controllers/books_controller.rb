@@ -1,5 +1,10 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+
+  rescue_from ActiveRecord::RecordNotFound do |e|
+    redirect_to books_path
+  end
 
   def show
     @book = Book.find(params[:id])

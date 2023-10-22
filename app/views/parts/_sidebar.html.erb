@@ -1,0 +1,33 @@
+<section class="mb-4">
+  <h2>User info</h2>
+
+  <div class="user-profile my-4">
+    <div class="text-center"><%= image_tag user.get_profile_image, size: "128x128" %></div>
+    <div class="font-weight-bold h5 my-2"><%= user.name %></div>
+    <div><%= user.introduction %></div>
+    <div>
+      <%= link_to user_followings_path(user) do %>
+        <strong><%= user.followings.count %></strong> Following
+      <% end %>
+    </div>
+    <div>
+      <%= link_to user_followers_path(user) do %>
+        <strong><%= user.followers.count %></strong> Followers
+      <% end %>
+    </div>
+  </div>
+
+  <% if user == current_user %>
+    <div class="text-center">
+      <%= link_to edit_user_path(user), class: "mx-auto btn btn-sm btn-outline-secondary px-4" do %>
+        <i class="fa-solid fa-user-gear"></i>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="text-center">
+      <%= render "relationships/btn", user: user %>
+    </div>
+  <% end %>
+</section>
+
+<%= render "books/form", book: Book.new, heading: "New book", action: :create %>

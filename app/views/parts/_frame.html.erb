@@ -1,0 +1,14 @@
+<div class="row">
+  <% if sidebar %>
+    <aside class="col-md-3">
+      <%= render "parts/sidebar", user: user %>
+    </aside>
+    <div class="col-md-8 offset-md-1">
+      <%= yield %>
+    </div>
+  <% else %>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <%= yield %>
+    </div>
+  <% end %>
+</div>

@@ -1,18 +1,21 @@
 <tr>
-  <td><%= link_to(book.user) do %>
-    <%= image_tag book.user.get_profile_image, size:'50x50' %>
+  <td data-col="avatar">
+    <%= link_to book.user do %>
+      <%= image_tag book.user.get_profile_image, size: "48x48" %>
     <% end %>
   </td>
-  <td>
-    <%= link_to book.title,book %>
+  <td data-col="title">
+    <%= link_to book.title, book %>
   </td>
-  <td>
+  <td data-col="opinion">
     <%= book.body %>
   </td>
-  <td>
-    <%= render "favorites/btn", book: book %>
+  <td data-col="fav">
+    <div id="fav-<%= book.id %>">
+      <%= render "favorites/btn", book: book %>
+    </div>
   </td>
-  <td>
+  <td data-col="comment">
     <%= render "book_comments/count", book: book %>
   </td>
 </tr>

@@ -3,32 +3,29 @@
   <h2>Book detail</h2>
 
   <div class="my-4">
-    <div class="d-flex">
-      <div class="mr-3">
+    <div class="book-details-item">
+      <div class="book-details-item-icon">
         <%= link_to user_path(book.user) do %>
-          <%= image_tag book.user.get_profile_image, size:"100x100" %>
+          <%= image_tag book.user.get_profile_image, size:"96x96" %>
         <% end %>
       </div>
-      <div class="w-100">
-        <div class="d-flex mb-1">
-          <div class="font-weight-bold mr-2"><%= link_to book.user.name, user_path(book.user) %></div>
-          <small>
-            <time class="text-black-50" datetime="<%= @book.created_at %>">
-              <%= @book.created_at.strftime("%Y/%m/%d") %>
-            </time>
-          </small>
+      <div class="book-details-item-body">
+        <div class="book-details-item-info">
+          <%= render partial: "shared/item-info", locals: {
+            user: book.user,
+            created_at: book.created_at
+          } %>
         </div>
-        <div class="">
-          <div class="h3"><%= book.title %></div>
-          <p><%= book.body %></p>
+        <div class="book-details-item-content">
+          <h3 class="book-details-item-title"><%= book.title %></h3>
+          <p class="book-details-item-opinion"><%= book.body %></p>
         </div>
       </div>
-      <div class="w-25">
+      <div class="book-details-item-action">
         <% if book.user == current_user %>
           <%= link_to edit_book_path(book), class: "btn btn-outline-primary btn-sm btn-block" do %>
             <i class="fa-solid fa-pencil"></i> Edit
           <% end %>
-
           <%= link_to book_path(book), method: :delete, "data-confirm" => "Are you sure?", class: "btn btn-outline-danger btn-sm btn-block" do %>
             <i class="fa-solid fa-trash-can"></i> Destroy
           <% end %>
@@ -41,15 +38,15 @@
 
   <div class="d-flex">
     <div class="d-flex justify-content-around mx-auto w-50">
-      <div><%= render "book_comments/count", book: book %></div>
-      <div><%= render "favorites/btn", book: book %></div>
+      <div id="comments-count"><%= render "book_comments/count", book: book %></div>
+      <div id="fav-<%= book.id %>"><%= render "favorites/btn", book: book %></div>
     </div>
   </div>
 
   <hr>
 
   <div>
-    <%= render "book_comments/list", book: book %>
-    <%= render "book_comments/form", book: book, book_comment: book_comment %>
+    <div id="comments-index"><%= render "book_comments/index", book: book %></div>
+    <div><%= render "book_comments/form", book: book, book_comment: book_comment %></div>
   </div>
 </section>

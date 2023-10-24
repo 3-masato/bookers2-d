@@ -1,15 +1,17 @@
 <section class="mb-4">
   <h2><%= heading ||= "Users" %></h2>
-  <table class='table'>
-    <thead>
-      <tr>
-        <th data-col="avatar">image</th>
-        <th data-col="name">name</th>
-        <th data-col="rest" colspan="4"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render partial: "users/row", collection: users, as: :user %>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class='table'>
+      <thead>
+        <tr>
+          <th data-col="avatar">image</th>
+          <th data-col="name">name</th>
+          <th data-col="rest" colspan="4"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "users/row", collection: users, as: :user %>
+      </tbody>
+    </table>
+  </div>
 </section>

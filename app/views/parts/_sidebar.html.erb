@@ -6,14 +6,10 @@
     <div class="font-weight-bold h5 my-2"><%= user.name %></div>
     <div><%= user.introduction %></div>
     <div>
-      <%= link_to user_followings_path(user) do %>
-        <strong><%= user.followings.count %></strong> Following
-      <% end %>
+      <%= render "relationships/followings-count", user: user %>
     </div>
     <div>
-      <%= link_to user_followers_path(user) do %>
-        <strong><%= user.followers.count %></strong> Followers
-      <% end %>
+      <%= render "relationships/followers-count", user: user %>
     </div>
   </div>
 

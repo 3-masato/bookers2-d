@@ -1,7 +1,7 @@
 <% fav_count = book.favorites.count %>
 <% is_faved = book.favorited_by?(current_user) %>
 
-<div class="favorite-body" data-faved="<%= is_faved %>">
+<div class="favorite-body text-nowrap" data-faved="<%= is_faved %>">
   <% if is_faved %>
     <%= link_to book_favorites_path(book), method: :delete, remote: true, class: "favorite-body-btn" do %>
       <i class="fa-solid fa-heart" aria-hidden="true"></i>

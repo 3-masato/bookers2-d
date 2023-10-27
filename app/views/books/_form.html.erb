@@ -15,11 +15,21 @@
       <% case action %>
       <% when :update %>
         <div class="form-group">
+          <%= render "books/rate/static", book: book %>
+        </div>
+
+        <div class="form-group">
           <%= f.button :type => "submit", class: "btn btn-primary" do %>
             Update Book
           <% end %>
         </div>
       <% when :create %>
+        <div class="form-group">
+          <%= f.label :star, class: "font-weight-bold" %>
+          <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
+          <%= render "books/rate/dynamic", book: book %>
+        </div>
+
         <div class="form-group">
           <%= f.submit "Create Book", class: "btn btn-success" %>
         </div>

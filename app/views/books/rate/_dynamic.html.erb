@@ -1,0 +1,8 @@
+<div class="book-rating-static">
+  <%= render partial: "books/rate/raty", locals: {
+    raty_id: "post_raty",
+    raty_extra_config: {
+      scoreName: "book[star]"
+    }
+  } %>
+</div>

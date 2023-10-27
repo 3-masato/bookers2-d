@@ -1,7 +1,7 @@
 <tr>
   <td data-col="avatar">
     <%= link_to book.user do %>
-      <%= image_tag book.user.get_profile_image, size: "48x48" %>
+      <%= image_tag book.user.get_profile_image, size: "32x32" %>
     <% end %>
   </td>
   <td data-col="title">
@@ -17,5 +17,8 @@
   </td>
   <td data-col="comment">
     <%= render "book_comments/count", book: book %>
+  </td>
+  <td data-col="rate">
+    <%= render "books/rate/static", book: book %>
   </td>
 </tr>

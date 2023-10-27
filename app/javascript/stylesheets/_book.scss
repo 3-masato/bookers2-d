@@ -1,7 +1,7 @@
 .book-details-item {
   display: grid;
   gap: 8px;
-  grid-template: "icon body action" / 96px 1fr 6rem;
+  grid-template: "icon body action" / 64px 1fr 6rem;
 
   &-icon {
     grid-area: icon;
@@ -17,6 +17,10 @@
 
   &-content {
     display: block;
+  }
+
+  &-rate {
+    margin: .5rem 0;
   }
 
   &-title {

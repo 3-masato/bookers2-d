@@ -2,8 +2,9 @@
   white-space: nowrap;
 
   td {
-    max-width: 16rem;
+    max-width: 15rem;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding: 0.75rem 0.5rem;
   }
 }

@@ -1,0 +1,22 @@
+<div id="<%= raty_id %>"></div>
+<script>
+  $(document).on("turbolinks:load", function() {
+    const elem = document.getElementById("<%= raty_id %>");
+    if (elem == null) {
+      return;
+    }
+
+    elem.innerHTML = "";
+
+    const extraConfig = JSON.parse('<%= raty_extra_config.to_json.html_safe %>');
+    const ratyConfig = {
+      starOn: "<%= asset_path("raty/star-on.png") %>",
+      starOff: "<%= asset_path("raty/star-off.png") %>",
+      starHalf: "<%= asset_path("raty/star-half.png") %>",
+      ...extraConfig
+    };
+
+    const raty = new Raty(elem, ratyConfig);
+    raty.init();
+  });
+</script>

@@ -13,7 +13,15 @@ class BooksController < ApplicationController
 
   def index
     @user = current_user
-    @books = Book.with_details
+
+    books = Book.with_details
+    if params[:latest]
+      @books = books.latest
+    elsif params[:star_count]
+      @books = books.star_count
+    else
+      @books = books.all
+    end
   end
 
   def edit

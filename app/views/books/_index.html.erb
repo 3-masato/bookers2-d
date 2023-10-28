@@ -5,6 +5,11 @@
       <p class="text-center"><%= empty_message %></p>
     <% end %>
   <% else %>
+    <div class="my-2">
+      <span>Sort by: </span>
+      <%= link_to 'Recently posted', books_path(latest: "true") %> |
+      <%= link_to 'Most rated', books_path(star_count: "true") %>
+    </div>
     <div class="table-responsive">
       <table class='table table-hover table-inverse'>
         <thead>

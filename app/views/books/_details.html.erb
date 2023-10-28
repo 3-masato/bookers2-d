@@ -17,7 +17,10 @@
           } %>
         </div>
         <div class="book-details-item-content">
-          <div class="book-details-item-rate"><%= render "books/rate/static", book: book %></div>
+          <div class="book-details-item-status">
+            <div class="book-details-item-rate"><%= render "books/rate/static", book: book %></div>
+            <div class="book-details-item-category"><%= render "books/category", book: book %></div>
+          </div>
           <div class="book-details-item-title h3"><%= book.title %></div>
           <p class="book-details-item-opinion"><%= book.body %></p>
         </div>

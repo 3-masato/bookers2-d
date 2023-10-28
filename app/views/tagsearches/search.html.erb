@@ -1,0 +1,8 @@
+<%= render "parts/frame", user: @user, type: :full do %>
+  <% if @books.size == 0 %>
+    <h2>No results for "<%= @content %>"</h2>
+    <p><%= no_result_text %></p>
+  <% else %>
+    <%= render 'books/index', books: @books, heading: "Books search for \"#{@content}\"" %>
+  <% end %>
+<% end %>

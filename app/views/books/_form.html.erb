@@ -12,6 +12,11 @@
         <%= f.text_area :body, class: "form-control", rows: "3", placeholder: "enter the book opinion" %>
       </div>
 
+      <div class="form-group">
+        <%= f.label :category, class: "font-weight-bold" %>
+        <%= f.text_field :category, class: "form-control", placeholder: "enter the book category" %>
+      </div>
+
       <% case action %>
       <% when :update %>
         <div class="form-group">

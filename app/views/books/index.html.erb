@@ -1,4 +1,10 @@
 <%= render "layouts/errors", model: @book %>
 <%= render "parts/frame", user: @user, type: :sidebar do %>
-  <%= render "books/index", books: @books %>
+  <%= render "books/index", books: @books do %>
+    <div class="my-2">
+      <span>Sort by: </span>
+      <%= link_to "Recently posted", books_path(latest: "true") %> |
+      <%= link_to "Most rated", books_path(star_count: "true") %>
+    </div>
+  <% end %>
 <% end %>
